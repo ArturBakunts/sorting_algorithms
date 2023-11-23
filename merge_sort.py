@@ -12,3 +12,11 @@ def merge_two_sorted_list(lst1, lst2):
     return merge_lst + lst1[i:] + lst2[j:]
 
 
+def recursive_sort_by_merge(lst):
+    if len(lst) == 1:
+        return lst
+    mid = len(lst) // 2
+    left = recursive_sort_by_merge(lst[:mid])
+    right = recursive_sort_by_merge(lst[mid:])
+    return merge_two_sorted_list(left, right)
+
